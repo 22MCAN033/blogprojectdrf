@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-sudo chown -R ubuntu:ubuntu ~/blogprojectdrf
-virtualenv /home/ubuntu/blogprojectdrf/venv
-source /home/ubuntu/blogprojectdrf/venv/bin/activate
-pip install -r /home/ubuntu/blogprojectdrf/requirements.txt
+# Update pip to the latest version
+pip install --upgrade pip
+
+# Install the Python packages, forcing binary wheels for problematic packages
+pip install --only-binary :all: ruamel.yaml Pillow -r /home/ubuntu/blogprojectdrf/requirements.txt
